@@ -1,0 +1,30 @@
+{
+  "whitelist": ["13472323187"],
+  "regexRules": [
+    "\\bforex signals?\\b",
+    "free stock group",
+    "grow your portfolio",
+    "passive income guaranteed"
+  ],
+  "groupRulesText": "Group rules:\n- Be respectful. No harassment or hate speech.\n- No sexual content.\n- No spam, no trading groups.\n- Keep it on-topic.",
+  "thresholds": {
+    "spamThreshold": 0.75,
+    "harassmentThreshold": 0.75,
+    "autoKickForSpam": true,
+    "autoKickForHarassment": false,
+    "inviteLinkBlocking": true
+  },
+  "warningPolicy": {
+    "maxWarnings": 5,
+    "cooldownHours": 24
+  },
+  "adminRoles": {
+    "13472323187": "superadmin"
+  },
+  "groupContexts": {
+    "default": {
+      "domain": "general",
+      "severityModifier": 1.0
+    }
+  }
+}

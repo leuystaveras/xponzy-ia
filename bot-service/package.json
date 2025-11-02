@@ -1,0 +1,21 @@
+{
+  "name": "whatsapp-group-moderator-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp group moderation bot with internal API",
+  "type": "module",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node src/bot.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@vitalets/google-translate-api": "^8.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.25.0"
+  }
+}

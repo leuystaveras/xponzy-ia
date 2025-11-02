@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WhatsApp Moderation Dashboard</title>
+    <link rel="stylesheet" href="/dashboard/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>WhatsApp Moderation Dashboard</h1>
+        <p class="subtitle">
+          Monitor groups, tune rules, and provide AI feedback in real time.
+        </p>
+      </header>
+
+      <section class="token">
+        <input id="token" type="password" placeholder="BOT_INTERNAL_TOKEN" />
+        <button id="saveToken">Save Token</button>
+        <span id="authStatus"></span>
+      </section>
+
+      <main class="grid">
+        <article>
+          <header><h2>Status</h2></header>
+          <button data-action="status">Refresh</button>
+          <pre id="statusPanel">—</pre>
+        </article>
+
+        <article>
+          <header><h2>Analytics</h2></header>
+          <button data-action="analytics">Refresh</button>
+          <pre id="analyticsPanel">—</pre>
+        </article>
+
+        <article>
+          <header><h2>AI Metrics</h2></header>
+          <button data-action="aiMetrics">Refresh</button>
+          <pre id="aiMetricsPanel">—</pre>
+        </article>
+
+        <article class="wide">
+          <header><h2>Configuration</h2></header>
+          <div class="toolbar">
+            <button data-action="loadConfig">Load</button>
+            <button data-action="saveConfig">Save</button>
+            <span id="configStatus"></span>
+          </div>
+          <div class="config-grid">
+            <label>
+              <span>Whitelist</span>
+              <textarea id="cfgWhitelist" rows="6"></textarea>
+            </label>
+            <label>
+              <span>Regex Rules</span>
+              <textarea id="cfgRegexRules" rows="6"></textarea>
+            </label>
+            <label>
+              <span>Group Rules Text</span>
+              <textarea id="cfgGroupRulesText" rows="6"></textarea>
+            </label>
+            <label>
+              <span>Thresholds</span>
+              <textarea id="cfgThresholds" rows="6" placeholder='{"spamThreshold":0.75,"harassmentThreshold":0.75,"autoKickForSpam":true,"autoKickForHarassment":false,"inviteLinkBlocking":true}'></textarea>
+            </label>
+            <label>
+              <span>Admin Roles</span>
+              <textarea id="cfgAdminRoles" rows="6" placeholder='{"1234567890":"superadmin"}'></textarea>
+            </label>
+            <label>
+              <span>Group Contexts</span>
+              <textarea id="cfgGroupContexts" rows="6" placeholder='{"default":{"domain":"general","severityModifier":1.0}}'></textarea>
+            </label>
+          </div>
+        </article>
+
+        <article class="wide">
+          <header><h2>Moderation Log (latest)</h2></header>
+          <button data-action="logs">Refresh</button>
+          <pre id="logsPanel">—</pre>
+        </article>
+
+        <article>
+          <header><h2>Active Learning Feedback</h2></header>
+          <label class="field">
+            <span>Message ID</span>
+            <input id="feedbackMessageId" />
+          </label>
+          <label class="field">
+            <span>Verdict</span>
+            <select id="feedbackVerdict">
+              <option value="correct">correct</option>
+              <option value="false_positive">false_positive</option>
+              <option value="false_negative">false_negative</option>
+            </select>
+          </label>
+          <button data-action="feedback">Send feedback</button>
+          <span id="feedbackStatus"></span>
+        </article>
+
+        <article>
+          <header><h2>Remote Ban</h2></header>
+          <label class="field">
+            <span>Group ID</span>
+            <input id="banGroupId" placeholder="<group-id>@g.us" />
+          </label>
+          <label class="field">
+            <span>Number</span>
+            <input id="banNumber" placeholder="59812345678" />
+          </label>
+          <button data-action="ban">Kick number</button>
+          <span id="banStatus"></span>
+        </article>
+      </main>
+    </div>
+
+    <script src="/dashboard/main.js" type="module"></script>
+    <!-- Español: Usa este panel para ajustar la configuración sin editar archivos ni reiniciar el bot. -->
+  </body>
+</html>

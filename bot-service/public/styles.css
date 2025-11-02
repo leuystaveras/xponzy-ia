@@ -1,0 +1,144 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0a111d;
+  color: #d8e4ff;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: #7f8bb5;
+}
+
+.token {
+  margin: 24px 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.token input {
+  flex: 1;
+  min-width: 260px;
+}
+
+main.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+article {
+  background: #111a2e;
+  border: 1px solid #1f2c48;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+article.wide {
+  grid-column: 1 / -1;
+}
+
+button,
+input,
+textarea,
+select {
+  background: #0f1627;
+  color: #d8e4ff;
+  border: 1px solid #223253;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+}
+
+button {
+  cursor: pointer;
+  background: linear-gradient(135deg, #3a6aff, #5a8dff);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: filter 0.2s ease;
+  width: fit-content;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+pre {
+  background: #0b1323;
+  border: 1px solid #1b2945;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.9rem;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.config-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.config-grid label,
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.status {
+  font-size: 0.85rem;
+}
+
+.status.ok {
+  color: #65d977;
+}
+
+.status.error {
+  color: #ff7083;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 24px 14px 50px;
+  }
+
+  main.grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Español: Estilos pensados para trabajar cómodamente desde móviles o escritorio. */

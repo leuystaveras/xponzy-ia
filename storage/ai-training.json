@@ -1,0 +1,13 @@
+{
+  "samples": [],
+  "feedback": [],
+  "metrics": {
+    "false_positive_reports": 0,
+    "false_negative_reports": 0,
+    "spam_seen_today": 0,
+    "harassment_seen_today": 0,
+    "precision_estimate": 0.9,
+    "recall_estimate": 0.9
+  }
+}
+

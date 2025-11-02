@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  ai-service:
+    image: node:20-bullseye
+    working_dir: /app/ai-service
+    command: bash -lc "npm install && node src/server.js"
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - OPENAI_API_KEY=
+      - LOG_LEVEL=info
+      - AI_SERVICE_TOKEN=changeme-ai-token
+    volumes:
+      - ./:/app
+      - ./storage:/app/storage
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  bot-service:
+    image: node:20-bullseye
+    working_dir: /app/bot-service
+    command: bash -lc "npm install && node src/bot.js"
+    ports:
+      - "3562:3562"
+    environment:
+      - PORT=3562
+      - SESSION_ID=moderator-bot
+      - LOG_LEVEL=info
+      - AI_SERVICE_URL=http://ai-service:8080
+      - BOT_INTERNAL_TOKEN=changeme-internal-token
+      - AI_SERVICE_TOKEN=changeme-ai-token
+      - WWJS_WEB_VERSION=2.2413.51
+    volumes:
+      - ./:/app
+      - ./storage:/app/storage
+      - ./logs:/app/logs
+    restart: unless-stopped
+    depends_on:
+      - ai-service
